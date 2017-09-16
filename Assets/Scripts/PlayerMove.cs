@@ -11,7 +11,11 @@ public class PlayerMove : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 	}
 
-	void FixedUpdate () {
+	void FixedUpdate(){
+		Move ();
+	}
+
+	void Move () {
 		if(Input.GetButton("Horizontal") || Input.GetButton("Vertical")){
 			x = Input.GetAxis ("Horizontal");
 			z = Input.GetAxis ("Vertical");
@@ -21,4 +25,5 @@ public class PlayerMove : MonoBehaviour {
 				Vector3.right * x + Vector3.forward * z - transform.position);
 		}
 	}
+		
 }
