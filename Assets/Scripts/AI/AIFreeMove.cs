@@ -2,28 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class AIFreeMove : MonoBehaviour {
+[DisallowMultipleComponent]
+[AddComponentMenu("AIScript/AIFreeMove")]
+public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
     private Vector3 _movingDiretion = Vector3.right;
     [SerializeField]private float speed = 0.1f;
 	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    void FixedUpdate(){
+    public void DoMove(){
 		RaycastHit hit = new RaycastHit();
 		int mask = ~(1 << 8);
-        Physics.Raycast(this.transform.position, _movingDiretion, out hit, Mathf.Infinity,mask);
-        if (hit.collider != null && hit.distance < 8f){
-            _movingDiretion = GetNextDirection();
-        }
-        this.transform.position += _movingDiretion *speed;
+		Physics.Raycast(this.transform.position, _movingDiretion, out hit, Mathf.Infinity, mask);
+		if (hit.collider != null && hit.distance < 8f)
+		{
+			_movingDiretion = GetNextDirection();
+		}
+		this.transform.position += _movingDiretion * speed;
     }
+
     private Vector3 GetNextDirection(){
 		RaycastHit hit = new RaycastHit();
 		int mask = ~(1 << 8);
