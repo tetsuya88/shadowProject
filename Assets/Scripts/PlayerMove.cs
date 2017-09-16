@@ -16,13 +16,14 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	void Move () {
-		if(Input.GetButton("Horizontal") || Input.GetButton("Vertical")){
+		if (Input.GetButton ("Horizontal") || Input.GetButton ("Vertical")) {
 			x = Input.GetAxis ("Horizontal");
 			z = Input.GetAxis ("Vertical");
-			rb.MovePosition(transform.position+new Vector3(x * Time.deltaTime * speed, 0f, z * Time.deltaTime * speed));
-
-			transform.rotation = Quaternion.LookRotation(transform.position + 
+			rb.MovePosition (transform.position + new Vector3 (x * Time.deltaTime * speed, 0f, z * Time.deltaTime * speed));
+			if (x != 0 || z != 0) {
+				transform.rotation = Quaternion.LookRotation (transform.position +
 				Vector3.right * x + Vector3.forward * z - transform.position);
+			}
 		}
 	}
 		

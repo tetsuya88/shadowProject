@@ -3,23 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShadowCheck : MonoBehaviour {
-	public Component light =null;
+	public GameObject lgt = null;
 	private Vector3 dir;
 
 	Ray ray;
 	RaycastHit hit;
 	int dis =100;
+	int layerNo,layerMask;
+
+	void Start(){
+		layerNo = LayerMask.NameToLayer("Wall");
+		layerMask = 1 << layerNo;
+	}
 
 	void Update (){
 		Ray ();
 	}
 
 	void Ray () {
-		dir = light.transform.forward*(-1);
+		dir = lgt.transform.forward*(-1);
 		ray = new Ray (transform.Find("rayAnchor").transform.position, dir);
-		//Debug.DrawLine (ray.origin, ray.direction * dis, Color.red,Time.deltaTime,true);
+		Debug.DrawLine (ray.origin, ray.direction * dis, Color.red,Time.deltaTime,true);
 
-		if (Physics.Raycast (ray, out hit, dis) && (hit.collider.tag == "Wall") ){
+		if (Physics.Raycast (ray, out hit, dis,layerMask) && (hit.collider.tag == "Wall") ){
 			GetComponent<Renderer> ().material.color = Color.black;
 		}else {
 			GetComponent<Renderer> ().material.color = Color.red;
