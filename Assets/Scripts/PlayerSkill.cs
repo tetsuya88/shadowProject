@@ -6,6 +6,8 @@ public class PlayerSkill : MonoBehaviour {
 
 	public GameObject batCircle;
 	public GameObject Bat;
+    public GameObject charmField;
+    public GameObject charmCollision;
 	public float speed=3f;
 	public float minpos=2f;
 	public float maxpos=5f;
@@ -16,7 +18,6 @@ public class PlayerSkill : MonoBehaviour {
 	private float dis = 0f;
 	private Vector3 batpos;
 	private bool flag=true;
-
 	void Start () {
 		
 	}
@@ -39,7 +40,21 @@ public class PlayerSkill : MonoBehaviour {
 			batcircle.transform.position = transform.position + transform.forward * dis + startpos;
 		}
 
+
+        if(Input.GetKeyDown(KeyCode.Z)){
+            charmField.SetActive(true);
+        }else if(Input.GetKeyUp(KeyCode.Z)){
+            charmCollision.SetActive(true);
+            StartCoroutine("CharmStart");
+        }
 	}
+
+
+    IEnumerator CharmStart(){
+        yield return new WaitForSeconds(1);
+        charmField.SetActive(false);
+        charmCollision.SetActive(false);
+    }
 
 	IEnumerator BatStart(){
 		bat = Instantiate (Bat) as GameObject;
