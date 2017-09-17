@@ -8,7 +8,6 @@ public class AIMover : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        
         aiMoveStrategy = GetComponent<IAIMoveStrategy>();
         if(aiMoveStrategy==null){
             Debug.Log("AIの移動戦略が指定されていません。");
