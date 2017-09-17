@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: ba35e0fb9cdeced4d8e43ae4022a1aaa
+timeCreated: 1505607787
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Chest_ctrl
+    100002: Chest_obj
+    100004: Foot_L_obj
+    100006: Foot_R_obj
+    100008: GlobalRST
+    100010: Hand_L_obj
+    100012: Hand_L_obj1
+    100014: Hara
+    100016: Head
+    100018: Head_obj
+    100020: Hip
+    100022: Hip_obj
+    100024: IK
+    100026: joint1
+    100028: joint10
+    100030: joint11
+    100032: joint12
+    100034: joint13
+    100036: joint14
+    100038: joint15
+    100040: joint16
+    100042: joint17
+    100044: joint18
+    100046: joint19
+    100048: joint2
+    100050: joint20
+    100052: joint21
+    100054: joint3
+    100056: joint4
+    100058: joint5
+    100060: joint6
+    100062: joint7
+    100064: joint8
+    100066: joint9
+    100068: L_Arm_IK
+    100070: L_Foot_Ctrl
+    100072: L_Foot_IK
+    100074: L_Foot_Upvector
+    100076: L_Hand_Ctrl
+    100078: L_Hand_upvector
+    100080: Lowerarm_L_obj
+    100082: Lowerarm_R_obj
+    100084: MDL_G
+    100086: pPlane1
+    100088: R_Arm_IK
+    100090: R_Foot_Ctrl
+    100092: R_Foot_IK
+    100094: R_Foot_Upvector
+    100096: R_Hand_Ctrl
+    100098: R_Hand_Upvector
+    100100: Rig
+    100102: Shin_L_obj
+    100104: Shin_R_obj
+    100106: Spine
+    100108: //RootNode
+    100110: Thigh_L_obj
+    100112: Thigh_R_obj
+    100114: Upperarm_L_obj
+    100116: Upperarm_R_obj
+    400000: Chest_ctrl
+    400002: Chest_obj
+    400004: Foot_L_obj
+    400006: Foot_R_obj
+    400008: GlobalRST
+    400010: Hand_L_obj
+    400012: Hand_L_obj1
+    400014: Hara
+    400016: Head
+    400018: Head_obj
+    400020: Hip
+    400022: Hip_obj
+    400024: IK
+    400026: joint1
+    400028: joint10
+    400030: joint11
+    400032: joint12
+    400034: joint13
+    400036: joint14
+    400038: joint15
+    400040: joint16
+    400042: joint17
+    400044: joint18
+    400046: joint19
+    400048: joint2
+    400050: joint20
+    400052: joint21
+    400054: joint3
+    400056: joint4
+    400058: joint5
+    400060: joint6
+    400062: joint7
+    400064: joint8
+    400066: joint9
+    400068: L_Arm_IK
+    400070: L_Foot_Ctrl
+    400072: L_Foot_IK
+    400074: L_Foot_Upvector
+    400076: L_Hand_Ctrl
+    400078: L_Hand_upvector
+    400080: Lowerarm_L_obj
+    400082: Lowerarm_R_obj
+    400084: MDL_G
+    400086: pPlane1
+    400088: R_Arm_IK
+    400090: R_Foot_Ctrl
+    400092: R_Foot_IK
+    400094: R_Foot_Upvector
+    400096: R_Hand_Ctrl
+    400098: R_Hand_Upvector
+    400100: Rig
+    400102: Shin_L_obj
+    400104: Shin_R_obj
+    400106: Spine
+    400108: //RootNode
+    400110: Thigh_L_obj
+    400112: Thigh_R_obj
+    400114: Upperarm_L_obj
+    400116: Upperarm_R_obj
+    2300000: pPlane1
+    3300000: pPlane1
+    4300000: Hip_obj
+    4300002: Hara
+    4300004: Chest_obj
+    4300006: Head_obj
+    4300008: Upperarm_R_obj
+    4300010: Lowerarm_R_obj
+    4300012: Hand_L_obj1
+    4300014: Upperarm_L_obj
+    4300016: Lowerarm_L_obj
+    4300018: Hand_L_obj
+    4300020: Thigh_R_obj
+    4300022: Shin_R_obj
+    4300024: Foot_R_obj
+    4300026: Thigh_L_obj
+    4300028: Shin_L_obj
+    4300030: Foot_L_obj
+    4300032: pPlane1
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Chest_obj
+    13700002: Foot_L_obj
+    13700004: Foot_R_obj
+    13700006: Hand_L_obj
+    13700008: Hand_L_obj1
+    13700010: Hara
+    13700012: Head_obj
+    13700014: Hip_obj
+    13700016: Lowerarm_L_obj
+    13700018: Lowerarm_R_obj
+    13700020: Shin_L_obj
+    13700022: Shin_R_obj
+    13700024: Thigh_L_obj
+    13700026: Thigh_R_obj
+    13700028: Upperarm_L_obj
+    13700030: Upperarm_R_obj
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
