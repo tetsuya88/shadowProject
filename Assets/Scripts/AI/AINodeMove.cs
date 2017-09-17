@@ -24,7 +24,7 @@ public class AINodeMove : MonoBehaviour ,IAIMoveStrategy{
 			{
 				_index++;
 			}
-			this.transform.position += (nextPosition - this.transform.position).normalized * speed;
+            this.transform.position += Vector3Utiltiy.ReturnNormalizedYZeroVec3(nextPosition - this.transform.position) * speed;
 		}
     }
 
