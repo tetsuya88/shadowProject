@@ -777,5 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263d4db045d769a49aeec4d7439f60d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwLine: {fileID: 1648859569306738, guid: 1cc767d99ec09c64598fef610a44f21a, type: 2}
-  speed: 1000
+  batCircle: {fileID: 1265652938785934, guid: 0311c8ff1f5dd394ba3a4d53e4bab324, type: 2}
+  speed: 5
+  minpos: 4
+  maxpos: 8

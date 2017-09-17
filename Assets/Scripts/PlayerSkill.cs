@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour {
 
-	public GameObject throwLine;
-	public float speed = 1000f;
-	// Use this for initialization
+	public GameObject batCircle;
+	public float speed=3f;
+	public float minpos=2f;
+	public float maxpos=5f;
+
+	private GameObject batcircle;
+	private Vector3 startpos;
+	private float dis = 0f;
+
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
+		startpos = transform.forward * minpos+ new Vector3(0,-1f,0);
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			GameObject throwline = GameObject.Instantiate (throwLine)as GameObject;
-			throwline.transform.position = transform.position;
-			throwline.GetComponent<Rigidbody> ().AddForce (this.transform.forward*speed);
+			dis = 0f;
+			batcircle = Instantiate (batCircle) as GameObject;
+			batcircle.transform.position = transform.position + transform.forward*dis + startpos;
+		}else if (Input.GetKeyUp (KeyCode.Space)) {
+			Destroy (batcircle);
+		}else if(Input.GetKey(KeyCode.Space)){
+			if (dis < maxpos-minpos) {
+				dis += Time.deltaTime * speed;
+			} 
+			batcircle.transform.position = transform.position + transform.forward * dis + startpos;
 		}
 	}
 }
