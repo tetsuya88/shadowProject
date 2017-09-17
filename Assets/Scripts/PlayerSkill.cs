@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerSkill : MonoBehaviour {
 
 	public GameObject batCircle;
+	public GameObject Bat;
 	public float speed=3f;
 	public float minpos=2f;
 	public float maxpos=5f;
 
 	private GameObject batcircle;
+	private GameObject bat;
 	private Vector3 startpos;
 	private float dis = 0f;
+	private Vector3 batpos;
 
 	void Start () {
 		
@@ -24,7 +27,9 @@ public class PlayerSkill : MonoBehaviour {
 			batcircle = Instantiate (batCircle) as GameObject;
 			batcircle.transform.position = transform.position + transform.forward*dis + startpos;
 		}else if (Input.GetKeyUp (KeyCode.Space)) {
+			batpos = batcircle.transform.position;
 			Destroy (batcircle);
+			StartCoroutine ("BatStart");
 		}else if(Input.GetKey(KeyCode.Space)){
 			if (dis < maxpos-minpos) {
 				dis += Time.deltaTime * speed;
@@ -32,4 +37,13 @@ public class PlayerSkill : MonoBehaviour {
 			batcircle.transform.position = transform.position + transform.forward * dis + startpos;
 		}
 	}
+
+	IEnumerator BatStart(){
+		bat = Instantiate (Bat) as GameObject;
+		bat.transform.position = batpos;
+		Debug.Log ("bat");
+		yield return new WaitForSeconds (2);
+		Destroy (bat);
+	}
+
 }
