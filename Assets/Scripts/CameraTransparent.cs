@@ -5,14 +5,23 @@ using UnityEngine;
 public class CameraTransparent : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c){
-		if (c.gameObject.tag == "Wall") {
-			c.gameObject.GetComponent<Renderer> ().shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+        if (LayerMask.LayerToName(c.gameObject.layer) == "Wall" ) {
+			var parent = c.gameObject.transform.parent;
+			foreach (var child in parent.transform.GetComponentsInChildren<Renderer>())
+			{
+                child.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+			}
+
 		}
 	}
 
 	void OnTriggerExit(Collider c){
-		if (c.gameObject.tag == "Wall") {
-			c.gameObject.GetComponent<Renderer> ().shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.On;
+		if (LayerMask.LayerToName(c.gameObject.layer) == "Wall") {
+            var parent = c.gameObject.transform.parent;
+            foreach (var child in parent.transform.GetComponentsInChildren<Renderer>()) {
+                child.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            }
+
 		}
 	}
 }

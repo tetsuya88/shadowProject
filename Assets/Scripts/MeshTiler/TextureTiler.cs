@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEditor;
 [ExecuteInEditMode]
 public class TextureTiler : MonoBehaviour {
     public int x_num;
@@ -11,6 +12,10 @@ public class TextureTiler : MonoBehaviour {
     public Material _material;
 	// Update is called once per frame
     void OnValidate(){
+        UpdateMesh();
+    }
+    public void UpdateMesh(){
+        if (Application.isPlaying) return;
 		var mesh = new Mesh();
 		var tempVerticleList = new List<Vector3>();
 
@@ -26,22 +31,25 @@ public class TextureTiler : MonoBehaviour {
 
 		var tempTrianglesList = new List<int>();
 
-        var tmpUvs = new List<Vector2>();
+		var tmpUvs = new List<Vector2>();
 		for (int i = 0; i < (x_num * z_num); i++)
 		{
-            tempTrianglesList.AddRange(ReturnTrianglesMesh(i,tmpUvs));
+			tempTrianglesList.AddRange(ReturnTrianglesMesh(i, tmpUvs));
 		}
 
 		mesh.triangles = tempTrianglesList.ToArray();
 
-       mesh.uv = tmpUvs.ToArray();
+		mesh.uv = tmpUvs.ToArray();
 		mesh.RecalculateNormals();
-        meshRenderer.material = _material;
+        meshRenderer.material = AssetDatabase.LoadAssetAtPath("Assets/Materials/building/building_middle.mat", typeof(Material)) as Material; ;
 		meshFilter.sharedMesh = mesh;
 		this.GetComponent<MeshCollider>().sharedMesh = mesh;
     }
+    void Start(){
 
-	void Update () {
+    }
+
+    void Update () {
         if (Application.isPlaying) return;
         if (meshFilter == null)
         {
