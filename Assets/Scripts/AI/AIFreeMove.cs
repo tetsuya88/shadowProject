@@ -6,7 +6,7 @@ using System.Linq;
 [AddComponentMenu("AIScript/AIFreeMove")]
 public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
     private Vector3 _movingDiretion = Vector3.right;
-    [SerializeField]private float speed = 0.1f;
+    [SerializeField]private float _speed = 0.1f;
 	// Use this for initialization
 
     public void DoMove(){
@@ -16,9 +16,16 @@ public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
         if (hit.collider != null && hit.distance<2f){
 			_movingDiretion = GetNextDirection();
 		}
-		this.transform.position += _movingDiretion * speed;
+		this.transform.position += _movingDiretion * _speed;
     }
-
+	public float GetSpeed()
+	{
+		return _speed;
+	}
+	public void SetSpeed(float speed)
+	{
+		_speed = speed;
+	}
     private Vector3 GetNextDirection(){
 		RaycastHit hit = new RaycastHit();
         int mask = 1 << 8;
