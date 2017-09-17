@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CameraTransparent : MonoBehaviour {
     public GameObject player;
-
+    void Start(){
+        player.transform.LookAt(new Vector3(player.transform.position.x - this.transform.position.x, 0f,player.transform.position.z-this.transform.position.z));
+    }
     void Update(){
 
         this.transform.rotation = Quaternion.identity;

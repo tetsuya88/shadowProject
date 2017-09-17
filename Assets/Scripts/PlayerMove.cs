@@ -27,10 +27,10 @@ public class PlayerMove : MonoBehaviour {
 
             this.transform.forward = z * forwardVec + -1f*x*rightVec;
             rb.MovePosition(transform.position + z*Time.deltaTime * forwardVec*speed + -1f*x *Time.deltaTime * rightVec*speed);
-			//rb.MovePosition (transform.position + new Vector3 (x * Time.deltaTime * speed, 0f, z * Time.deltaTime * speed));
-			if (x != 0 || z != 0) {
-				transform.rotation = Quaternion.LookRotation (transform.position +
-				Vector3.right * x + Vector3.forward * z - transform.position);
+            //rb.MovePosition (transform.position + new Vector3 (x * Time.deltaTime * speed, 0f, z * Time.deltaTime * speed));
+            if (x != 0 || z != 0)
+            {
+                transform.rotation = Quaternion.LookRotation(-1f*(rightVec * x) + forwardVec*z);
 			}
 		}
 	}
