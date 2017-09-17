@@ -15,7 +15,18 @@ public class TextureTiler : MonoBehaviour {
         UpdateMesh();
     }
     public void UpdateMesh(){
-        if (Application.isPlaying) return;
+
+		if (Application.isPlaying) return;
+		if (meshFilter == null)
+		{
+			meshFilter = GetComponent<MeshFilter>();
+			return;
+		}
+		if (meshRenderer == null)
+		{
+			meshRenderer = GetComponent<MeshRenderer>();
+			return;
+		}
 		var mesh = new Mesh();
 		var tempVerticleList = new List<Vector3>();
 
@@ -41,7 +52,8 @@ public class TextureTiler : MonoBehaviour {
 
 		mesh.uv = tmpUvs.ToArray();
 		mesh.RecalculateNormals();
-        meshRenderer.material = AssetDatabase.LoadAssetAtPath("Assets/Materials/building/building_middle.mat", typeof(Material)) as Material; ;
+        var building_material = AssetDatabase.LoadAssetAtPath("Assets/Materials/building/building_middle.mat", typeof(Material)) as Material;
+        if(building_material!=null) meshRenderer.material = building_material;
 		meshFilter.sharedMesh = mesh;
 		this.GetComponent<MeshCollider>().sharedMesh = mesh;
     }
