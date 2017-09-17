@@ -4,6 +4,7 @@ using UnityEngine;
 [AddComponentMenu("AIScript/AIMover")]
 public class AIMover : MonoBehaviour
 {
+    
     private IAIMoveStrategy aiMoveStrategy;
     // Use this for initialization
     void Awake()
@@ -23,5 +24,25 @@ public class AIMover : MonoBehaviour
     private void FixedUpdate()
     {
         aiMoveStrategy.DoMove();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (LayerMask.LayerToName(other.gameObject.layer) == "Bat")
+        {
+            var prevStrategy = aiMoveStrategy;
+            aiMoveStrategy = null;
+            aiMoveStrategy = this.gameObject.AddComponent<AIEscapeMove>();
+            aiMoveStrategy.SetSpeed(prevStrategy.GetSpeed());
+            (aiMoveStrategy as AIEscapeMove).SetMoveDirection(Vector3Utiltiy.ReturnNormalizedYZeroVec3(this.transform.position - other.transform.position));
+        }
+        else if ((LayerMask.LayerToName(other.gameObject.layer) == "Charm")){
+            var prevStrategy = aiMoveStrategy;
+            aiMoveStrategy = null;
+            aiMoveStrategy = this.gameObject.AddComponent<AICharmMove>();
+            aiMoveStrategy.SetSpeed(prevStrategy.GetSpeed());
+            var _transform = other.gameObject.transform;
+            (aiMoveStrategy as AICharmMove).SetTransofrm(ref _transform);
+        }
     }
 }

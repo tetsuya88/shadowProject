@@ -7,7 +7,7 @@ using UnityEditor;
 [DisallowMultipleComponent]
 public class AINodeMove : MonoBehaviour ,IAIMoveStrategy{
     public List<Transform> _transformList;
-	[SerializeField] private float speed;
+	[SerializeField] private float _speed;
     private List<Vector3> _positionList;
     private int _index = 0;
 	// Use this for initialization
@@ -24,10 +24,15 @@ public class AINodeMove : MonoBehaviour ,IAIMoveStrategy{
 			{
 				_index++;
 			}
-            this.transform.position += Vector3Utiltiy.ReturnNormalizedYZeroVec3(nextPosition - this.transform.position) * speed;
+            this.transform.position += Vector3Utiltiy.ReturnNormalizedYZeroVec3(nextPosition - this.transform.position) * _speed;
 		}
     }
-
+    public float GetSpeed(){
+        return _speed;
+    }
+    public void SetSpeed(float speed){
+        _speed = speed;
+    }
     private void OnDrawGizmos()
     {
         if (_transformList.Count()==0) return;

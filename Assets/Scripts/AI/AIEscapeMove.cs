@@ -14,7 +14,14 @@ public class AIEscapeMove : MonoBehaviour,IAIMoveStrategy {
 	void Update () {
 		
 	}
-
+	public float GetSpeed()
+	{
+		return _speed;
+	}
+	public void SetSpeed(float speed)
+	{
+		_speed = speed;
+	}
     public void DoMove(){
         if(_moveDireciton==null){
             Debug.Log("方向が設定されていません");
