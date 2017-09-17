@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraTransparent : MonoBehaviour {
+    public GameObject player;
 
+    void Update(){
+
+        this.transform.rotation = Quaternion.identity;
+    }
 	void OnTriggerEnter(Collider c){
         if (LayerMask.LayerToName(c.gameObject.layer) == "Wall" ) {
 			var parent = c.gameObject.transform.parent;
