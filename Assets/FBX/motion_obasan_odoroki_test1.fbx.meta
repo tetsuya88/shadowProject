@@ -1,22 +1,48 @@
 fileFormatVersion: 2
-guid: 51755cf7025152e47b230dbfdae1781f
-timeCreated: 1505631090
+guid: d495d527304ea7448b2897e8a99ab025
+timeCreated: 1505699031
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: polySurface1
-    100002: pSphere1
+    100000: ambientLight1
+    100002: mirroredCutMesh2
     100004: //RootNode
-    400000: polySurface1
-    400002: pSphere1
+    100006: polySurface1
+    100008: polySurface2
+    100010: polySurface3
+    100012: polySurface4
+    100014: polySurface5
+    100016: pSphere1
+    100018: transform3
+    100020: transform4
+    100022: transform5
+    100024: transform6
+    400000: ambientLight1
+    400002: mirroredCutMesh2
     400004: //RootNode
-    2300000: polySurface1
-    2300002: pSphere1
-    3300000: polySurface1
-    3300002: pSphere1
-    4300000: polySurface1
-    4300002: pSphere1
+    400006: polySurface1
+    400008: polySurface2
+    400010: polySurface3
+    400012: polySurface4
+    400014: polySurface5
+    400016: pSphere1
+    400018: transform3
+    400020: transform4
+    400022: transform5
+    400024: transform6
+    2300000: polySurface3
+    2300002: polySurface4
+    2300004: polySurface5
+    3300000: polySurface3
+    3300002: polySurface4
+    3300004: polySurface5
+    4300000: polySurface3
+    4300002: polySurface4
+    4300004: polySurface5
+    7400000: Take 001
+    9500000: //RootNode
+    10800000: ambientLight1
   materials:
     importMaterials: 1
     materialName: 0
@@ -40,7 +66,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -86,7 +140,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

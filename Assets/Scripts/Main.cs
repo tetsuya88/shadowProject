@@ -52,6 +52,19 @@ public class Main : MonoBehaviour {
 
 	void Result(){
 		//クリア時の処理
+		List<int> ranklist = new List<int> ();
+		int min = 100;
+		int minindex = -1;
+		for (int i=1; i <= 5; i++) {
+			if (min > PlayerPrefs.GetInt ("score" + (i ), 0)) {
+				min = PlayerPrefs.GetInt ("score" + (i ), 0);
+				minindex = i;
+			}
+
+		}
+		if(min<score){
+			PlayerPrefs.SetInt ("score" + minindex, score);
+		}
 		SceneManager.LoadScene (4);
 	}
 
