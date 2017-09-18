@@ -72,7 +72,7 @@ public class Main : MonoBehaviour {
 	public void Damage(){
 		slider.value -= Time.deltaTime/lifetime;
 		if (slider.value <= 0) {
-			SceneManager.LoadScene (3);
+			//SceneManager.LoadScene (3);
 		}
 	}
 
