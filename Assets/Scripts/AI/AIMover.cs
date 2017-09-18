@@ -107,14 +107,11 @@ public class AIMover : MonoBehaviour
             isGotBatted = true;
         }
         else if ((LayerMask.LayerToName(other.gameObject.layer) == "Charm")){
-            var prevStrategy = aiMoveStrategy;
-
+            aiMoveStrategy.Destory();
             aiMoveStrategy = null;
             aiMoveStrategy = this.gameObject.AddComponent<AICharmMove>();
-            aiMoveStrategy.SetSpeed(prevStrategy.GetSpeed());
             var _transform = other.gameObject.transform;
             (aiMoveStrategy as AICharmMove).SetTransofrm(ref _transform);
-            prevStrategy.Destory();
         }
 
 
@@ -143,7 +140,6 @@ public class AIMover : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         aiMoveStrategy = this.gameObject.AddComponent<AIEscapeMove>();
 		(aiMoveStrategy as AIEscapeMove).SetMoveDirection(Vector3Utiltiy.ReturnNormalizedYZeroVec3(this.transform.position - bat_position));
-        aiMoveStrategy.SetSpeed(0.1f);
 		anim.Play("Hashiri");
         state = EVillagerAnimationMode.Hashiri;
         isGotBatted = false;
@@ -151,6 +147,7 @@ public class AIMover : MonoBehaviour
 
     private IEnumerator DeadMotionCoroutine(){
 		rb.isKinematic = true;
+        this.GetComponent<Collider>().isTrigger = true;
         yield return new WaitForSeconds(5f);
         Destroy(this.gameObject);
     }
@@ -164,4 +161,10 @@ public class AIMover : MonoBehaviour
 public enum EVillagerAnimationMode
 {
 	Taiki, Odoroki, Hashiri, Shinu,Bat,Aruku
+}
+
+public static class MoveSpeed{
+    public static float CharmSpeed = 0.1f;
+    public static float EscapeSpeed = 0.1f;
+    public static float WalkSpeed = 0.1f;
 }

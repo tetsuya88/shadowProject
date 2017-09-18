@@ -31,5 +31,7 @@ public class AICharmMove : MonoBehaviour ,IAIMoveStrategy{
 	{
         charmTransform = transform;
 	} 
-	
+    void Start(){
+        _speed = MoveSpeed.CharmSpeed;
+    }
 }
