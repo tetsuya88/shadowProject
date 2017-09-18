@@ -19,6 +19,7 @@ public class AIMover : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+		Debug.Log ("seiseisareta");
 		mainui = GameObject.FindGameObjectWithTag ("UI");
         aiMoveStrategy = GetComponent<IAIMoveStrategy>();
         if(aiMoveStrategy==null){
@@ -79,10 +80,10 @@ public class AIMover : MonoBehaviour
 					aiMoveStrategy = gameObject.AddComponent<AIFreeMove>();
 					break;
 				case 1:
-					aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
+					//aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
 					break;
 				default:
-                    aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
+                    //aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
 					break;
 			}
             t = 0;
