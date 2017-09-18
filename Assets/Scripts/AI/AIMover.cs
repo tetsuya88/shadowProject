@@ -110,7 +110,7 @@ public class AIMover : MonoBehaviour
     private IEnumerator DeadMotionCoroutine(){
 		rb.isKinematic = true;
         yield return new WaitForSeconds(0.5f);
-        //DestoryThisVillager;
+        Destroy(this.gameObject);
     }
 
 
