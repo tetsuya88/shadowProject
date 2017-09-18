@@ -61,7 +61,7 @@ public class AIMover : MonoBehaviour
             aiMoveStrategy = null;
             //aiMoveStrategy = this.gameObject.AddComponent<AIEscapeMove>();
             //aiMoveStrategy.SetSpeed(prevStrategy.GetSpeed());
-            StartCoroutine(BatMotionCoroutine(other));
+            StartCoroutine(BatMotionCoroutine(other.transform.position));
             anim.Play("Odoroki");
             state = EVillagerAnimationMode.Bat;
             isGotBatted = true;
@@ -91,10 +91,10 @@ public class AIMover : MonoBehaviour
             aiMoveStrategy = null;
         }
     }
-    private IEnumerator BatMotionCoroutine(Collider other){
+    private IEnumerator BatMotionCoroutine(Vector3 bat_position){
         yield return new WaitForSeconds(0.3f);
         aiMoveStrategy = this.gameObject.AddComponent<AIEscapeMove>();
-		(aiMoveStrategy as AIEscapeMove).SetMoveDirection(Vector3Utiltiy.ReturnNormalizedYZeroVec3(this.transform.position - other.transform.position));
+		(aiMoveStrategy as AIEscapeMove).SetMoveDirection(Vector3Utiltiy.ReturnNormalizedYZeroVec3(this.transform.position - bat_position));
         aiMoveStrategy.SetSpeed(0.1f);
 		anim.Play("Hashiri");
         state = EVillagerAnimationMode.Hashiri;
