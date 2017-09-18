@@ -46,7 +46,7 @@ public class AIMover : MonoBehaviour
         if (isDying) return;
         if (isGotBatted) return;
         if (nowTimeCoroutine == null)
-            //nowTimeCoroutine = StartCoroutine(TimeCountCoroutine());
+            nowTimeCoroutine = StartCoroutine(TimeCountCoroutine());
 		
         
         if (speed <0.00001f)
