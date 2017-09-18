@@ -15,7 +15,14 @@ public class Main : MonoBehaviour {
 	private int score = 0;
 	bool flag=true; //デバッグ用
 
+	void Start(){
+		//Time.timeScale = 0;
+	}
+
 	void Update () {
+		if (Input.GetKeyDown (KeyCode.Return)) {
+
+		}
 		//debug
 		//Damage ();
 		//Recovery ();
@@ -69,7 +76,7 @@ public class Main : MonoBehaviour {
 	public void Damage(){
 		slider.value -= Time.deltaTime/lifetime;
 		if (slider.value <= 0) {
-			SceneManager.LoadScene (3);
+			//SceneManager.LoadScene (3);
 		}
 	}
 

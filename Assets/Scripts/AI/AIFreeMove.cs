@@ -7,7 +7,7 @@ using System.Linq;
 public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
     private Vector3 _movingDiretion = Vector3.right;
 	[SerializeField]private float limit = 5f;
-    [SerializeField]private float _speed = 0.1f;
+     private float _speed = 0.1f;
 	// Use this for initialization
 
     void Start(){
@@ -17,6 +17,7 @@ public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
 		Vector3 direction = new Vector3 (rx, 0, rz);//Vector3.left;
 		direction = Quaternion.Euler(0, 5f, 0) * direction;
         _movingDiretion = direction;
+        _speed = MoveSpeed.WalkSpeed;
 
 	}
 	public void Destory()

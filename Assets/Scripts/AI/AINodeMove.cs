@@ -16,6 +16,7 @@ public class AINodeMove : MonoBehaviour, IAIMoveStrategy
     // Use this for initialization
     void Start()
     {
+        _speed = MoveSpeed.WalkSpeed;
         _positionList = new List<Vector3>(_transformList.Select(t => t.position));
     }
 

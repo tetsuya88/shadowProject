@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
-	public float speed = 1f;
-
+	public float rotatespeed = 30f;
+	public float speed = 10f;
 	private float x = 0f, z = 0f;
 	private Rigidbody rb;
 
@@ -13,7 +13,8 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		Move ();
+		//Move ();
+		RotateMove();
 	}
 
 	void Move () {
@@ -35,6 +36,15 @@ public class PlayerMove : MonoBehaviour {
             {
 				transform.rotation = Quaternion.LookRotation(transform.position+Vector3.right * x + Vector3.forward * z -transform.position);
 			}
+		}
+	}
+	void RotateMove (){
+		if (Input.GetButton ("Horizontal") || Input.GetButton ("Vertical")) {
+			x = Input.GetAxis ("Horizontal");
+			z = Input.GetAxis ("Vertical");
+			transform.Rotate (0, x*Time.deltaTime*rotatespeed, 0);
+			rb.MovePosition (transform.position + transform.forward * Time.deltaTime*speed*z);
+			rb.velocity = Vector3.zero;
 		}
 	}
 		
