@@ -57,7 +57,9 @@ public class AIMover : MonoBehaviour
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == "Bat")
         {
-            aiMoveStrategy.Destory();
+			if (aiMoveStrategy != null) {
+				aiMoveStrategy.Destory ();
+			}
             aiMoveStrategy = null;
             //aiMoveStrategy = this.gameObject.AddComponent<AIEscapeMove>();
             //aiMoveStrategy.SetSpeed(prevStrategy.GetSpeed());
@@ -77,20 +79,24 @@ public class AIMover : MonoBehaviour
             prevStrategy.Destory();
         }
 
+
+
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(LayerMask.LayerToName(collision.gameObject.layer) == "Player"){
-            Debug.Log("aaa");
-            anim.Play("Shinu");
-            state = EVillagerAnimationMode.Shinu;
-            StartCoroutine(DeadMotionCoroutine());
-            isDying = true;
-            aiMoveStrategy.Destory();
-            aiMoveStrategy = null;
-        }
-    }
+	private void OnCollisionEnter(Collision collision){
+		if(LayerMask.LayerToName(collision.gameObject.layer) == "Player"){
+			anim.Play("Shinu");
+			state = EVillagerAnimationMode.Shinu;
+			StartCoroutine(DeadMotionCoroutine());
+			isDying = true;
+			if (aiMoveStrategy != null) {
+				aiMoveStrategy.Destory ();
+			}
+			aiMoveStrategy = null;
+		}
+	}
+
+    
     private IEnumerator BatMotionCoroutine(Vector3 bat_position){
         yield return new WaitForSeconds(0.3f);
         aiMoveStrategy = this.gameObject.AddComponent<AIEscapeMove>();
@@ -102,6 +108,7 @@ public class AIMover : MonoBehaviour
 	}
 
     private IEnumerator DeadMotionCoroutine(){
+		rb.isKinematic = true;
         yield return new WaitForSeconds(0.5f);
         //DestoryThisVillager;
     }

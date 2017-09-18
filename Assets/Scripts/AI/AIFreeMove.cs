@@ -6,6 +6,7 @@ using System.Linq;
 [AddComponentMenu("AIScript/AIFreeMove")]
 public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
     private Vector3 _movingDiretion = Vector3.right;
+	[SerializeField]private float limit = 5f;
     [SerializeField]private float _speed = 0.1f;
 	// Use this for initialization
 
@@ -17,7 +18,8 @@ public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
 		RaycastHit hit = new RaycastHit();
 		int mask = 1 << 8;
 		Physics.Raycast(this.transform.position, _movingDiretion, out hit, Mathf.Infinity, mask);
-        if (hit.collider != null && hit.distance<2f){
+		Debug.Log (hit.distance);
+        if (hit.collider != null && hit.distance<limit){
 			_movingDiretion = GetNextDirection();
 		}
         this.transform.forward = Vector3Utiltiy.ReturnNormalizedYZeroVec3(_movingDiretion);
