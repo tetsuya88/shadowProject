@@ -16,7 +16,7 @@ public class Main : MonoBehaviour {
 	bool flag=true; //デバッグ用
 
 	void Start(){
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
 	}
 
 	void Update () {
@@ -76,7 +76,7 @@ public class Main : MonoBehaviour {
 	public void Damage(){
 		slider.value -= Time.deltaTime/lifetime;
 		if (slider.value <= 0) {
-			SceneManager.LoadScene (3);
+			//SceneManager.LoadScene (3);
 		}
 	}
 
