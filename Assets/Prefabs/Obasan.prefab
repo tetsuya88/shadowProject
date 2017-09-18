@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4128707003629768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4765732258436998}
   - component: {fileID: 95892920213130914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ObasanAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4195245872072676}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: transform4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4151106101719712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pSphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4385606324949972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: transform5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4533582189749720}
   - component: {fileID: 33503761151091516}
   - component: {fileID: 23890713821561876}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polySurface3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4229041848869012}
   - component: {fileID: 33239685023751828}
   - component: {fileID: 23744260464317840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polySurface4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 114205444441571942}
   - component: {fileID: 136268298965460046}
   - component: {fileID: 114620358296678612}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Obasan
-  m_TagString: Untagged
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 4584683512046448}
   - component: {fileID: 33834580514527392}
   - component: {fileID: 23213321805568750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polySurface5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
