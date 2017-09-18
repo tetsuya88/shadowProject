@@ -4,7 +4,10 @@ using UnityEngine;
 [AddComponentMenu("AIScript/AIMover")]
 public class AIMover : MonoBehaviour
 {
-    private EVillagerAnimationMode state;
+	private GameObject mainui;
+	private bool scoreflag=true;//scoreが連続で加算されるのを防ぐ
+
+	private EVillagerAnimationMode state;
     private Rigidbody rb;
     public Animator anim;
     private bool isGotBatted;
@@ -12,10 +15,11 @@ public class AIMover : MonoBehaviour
     private IAIMoveStrategy aiMoveStrategy;
     private int t;
     private Coroutine nowTimeCoroutine;
+
     // Use this for initialization
     void Awake()
     {
-        
+		mainui = GameObject.FindGameObjectWithTag ("UI");
         aiMoveStrategy = GetComponent<IAIMoveStrategy>();
         if(aiMoveStrategy==null){
             Debug.Log("AIの移動戦略が指定されていません。");
@@ -117,15 +121,19 @@ public class AIMover : MonoBehaviour
     }
 
 	private void OnCollisionEnter(Collision collision){
-		if(LayerMask.LayerToName(collision.gameObject.layer) == "Player"){
-			anim.Play("Shinu");
+		if (LayerMask.LayerToName (collision.gameObject.layer) == "Player") {
+			anim.Play ("Shinu");
 			state = EVillagerAnimationMode.Shinu;
-			StartCoroutine(DeadMotionCoroutine());
+			StartCoroutine (DeadMotionCoroutine ());
 			isDying = true;
 			if (aiMoveStrategy != null) {
 				aiMoveStrategy.Destory ();
 			}
 			aiMoveStrategy = null;
+			if (scoreflag) {
+				mainui.GetComponent<Main> ().scorePlus ();
+				scoreflag = false;
+			}
 		}
 	}
 
@@ -145,6 +153,8 @@ public class AIMover : MonoBehaviour
         yield return new WaitForSeconds(5f);
         Destroy(this.gameObject);
     }
+
+
 
 
 }
