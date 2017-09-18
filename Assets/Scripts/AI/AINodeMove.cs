@@ -15,8 +15,10 @@ public class AINodeMove : MonoBehaviour ,IAIMoveStrategy{
         _positionList = new List<Vector3>(_transformList.Select(t=>t.position));
 	}
 
-
-    public void DoMove(){
+    public void Destory(){
+        Destroy(this);
+    }
+    public float DoMove(){
 		if (_index < _positionList.Count)
 		{
 			Vector3 nextPosition = _positionList[_index];
@@ -24,8 +26,12 @@ public class AINodeMove : MonoBehaviour ,IAIMoveStrategy{
 			{
 				_index++;
 			}
+            this.transform.forward = Vector3Utiltiy.ReturnNormalizedYZeroVec3(nextPosition - this.transform.position);
+            //this.GetComponent<Rigidbody>().MovePosition(Vector3Utiltiy.ReturnNormalizedYZeroVec3(nextPosition - this.transform.position)*_speed*Time.deltaTime);
             this.transform.position += Vector3Utiltiy.ReturnNormalizedYZeroVec3(nextPosition - this.transform.position) * _speed;
+            return _speed;
 		}
+        return 0f;
     }
     public float GetSpeed(){
         return _speed;

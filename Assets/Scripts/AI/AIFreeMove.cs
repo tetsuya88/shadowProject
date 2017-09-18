@@ -9,14 +9,20 @@ public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
     [SerializeField]private float _speed = 0.1f;
 	// Use this for initialization
 
-    public void DoMove(){
+	public void Destory()
+	{
+		Destroy(this);
+	}
+    public float DoMove(){
 		RaycastHit hit = new RaycastHit();
 		int mask = 1 << 8;
 		Physics.Raycast(this.transform.position, _movingDiretion, out hit, Mathf.Infinity, mask);
         if (hit.collider != null && hit.distance<2f){
 			_movingDiretion = GetNextDirection();
 		}
+        this.transform.forward = Vector3Utiltiy.ReturnNormalizedYZeroVec3(_movingDiretion);
 		this.transform.position += _movingDiretion * _speed;
+        return _speed;
     }
 	public float GetSpeed()
 	{

@@ -1,16 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 [ExecuteInEditMode]
 public class SetBuildTileEasy : MonoBehaviour {
     public int _x;
     public int _z;
+    public Material _material;
     private void OnValidate()
     {
         foreach(var textureTiler in GetComponentsInChildren<TextureTiler>()){
             textureTiler.x_num = _x;
             textureTiler.z_num = _z;
             textureTiler.UpdateMesh();
+            if (_material != null)
+            {
+                textureTiler.transform.GetComponent<MeshRenderer>().material = _material;
+            }
         }
     }
     // Use this for initialization
@@ -30,10 +36,12 @@ public class SetBuildTileEasy : MonoBehaviour {
 	void Update () {
         if (Application.isPlaying) return;
 
+
         for (int i = 0; i < this.transform.childCount;i++){
             this.transform.GetChild(i).transform.localPosition = new Vector3(0f, (float)(i * this.transform.lossyScale.y), 0f);
-            Debug.Log(this.transform.childCount);
         }
 
 	}
+
+
 }
