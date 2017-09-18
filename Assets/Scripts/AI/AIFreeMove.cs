@@ -10,8 +10,15 @@ public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
     [SerializeField]private float _speed = 0.1f;
 	// Use this for initialization
 
+    void Start(){
+        Vector3 direction = Vector3.right;
+		direction = Quaternion.Euler(0, 5f, 0) * direction;
+        _movingDiretion = direction;
+
+	}
 	public void Destory()
 	{
+        
 		Destroy(this);
 	}
     public float DoMove(){

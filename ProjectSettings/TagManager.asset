@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Person
+  - Node
   layers:
   - Default
   - TransparentFX

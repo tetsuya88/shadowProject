@@ -1710,7 +1710,7 @@ GameObject:
   - component: {fileID: 23960026747495792}
   - component: {fileID: 65859954027445730}
   m_Layer: 8
-  m_Name: sample_stage_03
+  m_Name: sample_stage_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
