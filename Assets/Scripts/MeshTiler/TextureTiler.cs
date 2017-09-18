@@ -141,9 +141,6 @@ public class TextureTiler : MonoBehaviour
         uvs.AddRange(uv);
         return ret.Select(v => v + index * 8).ToArray();
     }
-<<<<<<< HEAD
 #endif
 }
-=======
-}
->>>>>>> f26e58c96ff9a5a625e2a332fdedb8db6baf32c1
+
