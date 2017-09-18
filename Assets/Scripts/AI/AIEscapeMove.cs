@@ -7,7 +7,7 @@ public class AIEscapeMove : MonoBehaviour,IAIMoveStrategy {
     public float _speed = 0;
 	// Use this for initialization
 	void Start () {
-		
+        _speed = MoveSpeed.EscapeSpeed;
 	}
 	public void Destory()
 	{
