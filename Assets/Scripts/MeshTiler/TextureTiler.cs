@@ -55,7 +55,6 @@ public class TextureTiler : MonoBehaviour {
         var building_material = AssetDatabase.LoadAssetAtPath("Assets/Materials/building/building_middle.mat", typeof(Material)) as Material;
         if(building_material!=null) meshRenderer.material = building_material;
 		meshFilter.sharedMesh = mesh;
-		this.GetComponent<MeshCollider>().sharedMesh = mesh;
     }
     void Start(){
 

@@ -15,7 +15,14 @@ public class SetBuildTileEasy : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-		
+        if (!Application.isPlaying) return;
+        var collider = GetComponent<BoxCollider>();
+        if(collider == null){
+            collider = gameObject.AddComponent<BoxCollider>();
+        }
+
+        collider.center = new Vector3((float)_x / 2f, (float)transform.childCount / 2f + 1f, (float)_z / 2f);
+        collider.size = new Vector3((float)_x, (float)transform.childCount, (float)_z);
 	}
 	
 	// Update is called once per frame
