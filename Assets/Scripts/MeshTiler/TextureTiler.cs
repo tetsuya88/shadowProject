@@ -9,6 +9,7 @@ public class TextureTiler : MonoBehaviour {
     public int z_num;
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
+    private Vector3 prevScale;
     public Material _material;
 	// Update is called once per frame
     void OnValidate(){
@@ -55,7 +56,9 @@ public class TextureTiler : MonoBehaviour {
         var building_material = AssetDatabase.LoadAssetAtPath("Assets/Materials/building/building_middle.mat", typeof(Material)) as Material;
         if(building_material!=null) meshRenderer.material = building_material;
 		meshFilter.sharedMesh = mesh;
-		this.GetComponent<MeshCollider>().sharedMesh = mesh;
+        float t = 0f;
+
+
     }
     void Start(){
 
@@ -72,15 +75,27 @@ public class TextureTiler : MonoBehaviour {
             meshRenderer = GetComponent<MeshRenderer>();
             return;
         }
+        if(prevScale!=this.transform.lossyScale){
+            UpdateMesh();
+        }
+        prevScale = this.transform.lossyScale;
 
 
 	}
     Vector3[] ReturnListVerticle(int x, int z)
     {
-        return new Vector3[]{
+
+        List<Vector3> tmpList = new List<Vector3>(new Vector3[]{
             new Vector3(x,0,z),new Vector3(x+1,0,z),new Vector3(x+1,0,z+1),new Vector3(x,0,z+1),
-			 new Vector3(x,1,z),new Vector3(x+1,1,z),new Vector3(x+1,1,z+1),new Vector3(x,1,z+1)
-        };
+             new Vector3(x,1,z),new Vector3(x+1,1,z),new Vector3(x+1,1,z+1),new Vector3(x,1,z+1)
+        });
+
+        return tmpList.Select((Vector3 v) =>
+        {
+            return new Vector3(v.x * this.transform.lossyScale.x,
+            v.y * this.transform.lossyScale.y,
+                         v.z * this.transform.lossyScale.z);
+        }).ToArray();
     }
 
     int[] ReturnTrianglesMesh(int index,List<Vector2> uvs){
