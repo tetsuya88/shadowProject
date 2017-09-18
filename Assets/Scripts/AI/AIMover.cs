@@ -10,6 +10,8 @@ public class AIMover : MonoBehaviour
     private bool isGotBatted;
     private bool isDying;
     private IAIMoveStrategy aiMoveStrategy;
+    private int t;
+    private Coroutine nowTimeCoroutine;
     // Use this for initialization
     void Awake()
     {
@@ -31,10 +33,17 @@ public class AIMover : MonoBehaviour
     private void FixedUpdate()
     {
         float speed = 0;
-        if(aiMoveStrategy!=null)
-        speed = aiMoveStrategy.DoMove();
+        if (aiMoveStrategy != null)
+        {
+            speed = aiMoveStrategy.DoMove();
+
+        }
         if (isDying) return;
         if (isGotBatted) return;
+        if (nowTimeCoroutine == null)
+            //nowTimeCoroutine = StartCoroutine(TimeCountCoroutine());
+		
+        
         if (speed <0.00001f)
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Taiki"))
@@ -53,6 +62,30 @@ public class AIMover : MonoBehaviour
 
     }
 
+    private IEnumerator TimeCountCoroutine (){
+        yield return new WaitForSeconds(1f);
+		if (Random.Range(0, 20) < t)
+		{
+            if(aiMoveStrategy!=null)
+			aiMoveStrategy.Destory();
+			aiMoveStrategy = null;
+			switch ((int)Random.Range(0, 2 - 0.01f))
+			{
+				case 0:
+					aiMoveStrategy = gameObject.AddComponent<AIFreeMove>();
+					break;
+				case 1:
+					aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
+					break;
+				default:
+                    aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
+					break;
+			}
+            t = 0;
+		}
+        t++;
+        nowTimeCoroutine = null;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == "Bat")
