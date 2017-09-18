@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
 	public float speed = 1f;
-
 	private float x = 0f, z = 0f;
 	private Rigidbody rb;
 
 	void Start () {
+
 		rb = GetComponent<Rigidbody> ();
 	}
 
