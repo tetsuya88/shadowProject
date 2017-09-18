@@ -31,6 +31,7 @@ public class AIEscapeMove : MonoBehaviour,IAIMoveStrategy {
             return 0;
         }
         this.transform.position += _moveDireciton*_speed;
+        this.transform.forward = Vector3Utiltiy.ReturnNormalizedYZeroVec3(_moveDireciton);
         return _speed;
     }
 

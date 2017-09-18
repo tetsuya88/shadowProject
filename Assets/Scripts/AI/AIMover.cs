@@ -8,6 +8,7 @@ public class AIMover : MonoBehaviour
     private Rigidbody rb;
     public Animator anim;
     private bool isGotBatted;
+    private bool isDying;
     private IAIMoveStrategy aiMoveStrategy;
     // Use this for initialization
     void Awake()
@@ -32,7 +33,7 @@ public class AIMover : MonoBehaviour
         float speed = 0;
         if(aiMoveStrategy!=null)
         speed = aiMoveStrategy.DoMove();
-
+        if (isDying) return;
         if (isGotBatted) return;
         if (speed <0.00001f)
         {
@@ -61,7 +62,6 @@ public class AIMover : MonoBehaviour
             //aiMoveStrategy = this.gameObject.AddComponent<AIEscapeMove>();
             //aiMoveStrategy.SetSpeed(prevStrategy.GetSpeed());
             StartCoroutine(BatMotionCoroutine(other));
-            Debug.Log("aaa");
             anim.Play("Odoroki");
             state = EVillagerAnimationMode.Bat;
             isGotBatted = true;
@@ -76,6 +76,20 @@ public class AIMover : MonoBehaviour
             (aiMoveStrategy as AICharmMove).SetTransofrm(ref _transform);
             prevStrategy.Destory();
         }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(LayerMask.LayerToName(collision.gameObject.layer) == "Player"){
+            Debug.Log("aaa");
+            anim.Play("Shinu");
+            state = EVillagerAnimationMode.Shinu;
+            StartCoroutine(DeadMotionCoroutine());
+            isDying = true;
+            aiMoveStrategy.Destory();
+            aiMoveStrategy = null;
+        }
     }
     private IEnumerator BatMotionCoroutine(Collider other){
         yield return new WaitForSeconds(0.3f);
@@ -86,6 +100,12 @@ public class AIMover : MonoBehaviour
         state = EVillagerAnimationMode.Hashiri;
         isGotBatted = false;
 	}
+
+    private IEnumerator DeadMotionCoroutine(){
+        yield return new WaitForSeconds(0.5f);
+        //DestoryThisVillager;
+    }
+
 
 }
 
