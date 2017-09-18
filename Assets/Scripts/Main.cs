@@ -19,12 +19,7 @@ public class Main : MonoBehaviour {
 		//debug
 		//Damage ();
 		//Recovery ();
-		if (Input.GetKeyDown (KeyCode.G)) {
-			SceneManager.LoadScene (3);
-		}
-		if (Input.GetKeyDown (KeyCode.C)) {
-			SceneManager.LoadScene (4);
-		}
+
 		scoreText.text = ""+score;
 
 		if (flag) {
@@ -56,12 +51,14 @@ public class Main : MonoBehaviour {
 		int min = 100;
 		int minindex = -1;
 		for (int i=1; i <= 5; i++) {
-			if (min > PlayerPrefs.GetInt ("score" + (i ), 0)) {
-				min = PlayerPrefs.GetInt ("score" + (i ), 0);
+			if (min > PlayerPrefs.GetInt ("score" + i, 0)) {
+				min = PlayerPrefs.GetInt ("score" + i, 0);
 				minindex = i;
 			}
 
 		}
+		Debug.Log (minindex);
+		PlayerPrefs.SetInt ("myscore",score);
 		if(min<score){
 			PlayerPrefs.SetInt ("score" + minindex, score);
 		}
@@ -72,7 +69,7 @@ public class Main : MonoBehaviour {
 	public void Damage(){
 		slider.value -= Time.deltaTime/lifetime;
 		if (slider.value <= 0) {
-			//SceneManager.LoadScene (3);
+			SceneManager.LoadScene (3);
 		}
 	}
 

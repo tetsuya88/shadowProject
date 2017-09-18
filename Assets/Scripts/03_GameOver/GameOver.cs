@@ -5,7 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameOver: MonoBehaviour {
-	public void OnClick(){
-		SceneManager.LoadScene (0);
+	public void Update(){
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			SceneManager.LoadScene (0);
+		}
 	}
 }

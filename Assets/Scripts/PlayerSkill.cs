@@ -24,16 +24,16 @@ public class PlayerSkill : MonoBehaviour {
 
 	void Update () {
 		startpos = transform.forward * minpos+ new Vector3(0,-1f,0);
-		if (Input.GetKeyDown (KeyCode.Space)&&flag) {
+		if (Input.GetKeyDown (KeyCode.X)&&flag) {
 			flag = false;
 			dis = 0f;
 			batcircle = Instantiate (batCircle) as GameObject;
 			batcircle.transform.position = transform.position + transform.forward * dis + startpos;
-		} else if (Input.GetKeyUp (KeyCode.Space)&&batcircle!=null) {
+		} else if (Input.GetKeyUp (KeyCode.X)&&batcircle!=null) {
 			batpos = batcircle.transform.position;
 			Destroy (batcircle);
 			StartCoroutine ("BatStart");
-		} else if (Input.GetKey (KeyCode.Space)&&batcircle!=null) {
+		} else if (Input.GetKey (KeyCode.X)&&batcircle!=null) {
 			if (dis < maxpos - minpos) {
 				dis += Time.deltaTime * speed;
 			} 

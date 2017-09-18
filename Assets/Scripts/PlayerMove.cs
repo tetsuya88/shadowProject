@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
 	public float speed = 1f;
+
 	private float x = 0f, z = 0f;
 	private Rigidbody rb;
 
 	void Start () {
-
 		rb = GetComponent<Rigidbody> ();
 	}
 
@@ -30,7 +30,8 @@ public class PlayerMove : MonoBehaviour {
 			rb.MovePosition(transform.position + z*Time.deltaTime * forwardVec*speed + -1f*x *Time.deltaTime * rightVec*speed);
 			*/
 			rb.MovePosition (transform.position + new Vector3 (x * Time.deltaTime * speed, 0f, z * Time.deltaTime * speed));
-            if (x != 0 || z != 0)
+			rb.velocity = Vector3.zero;
+			if (x != 0 || z != 0)
             {
 				transform.rotation = Quaternion.LookRotation(transform.position+Vector3.right * x + Vector3.forward * z -transform.position);
 			}

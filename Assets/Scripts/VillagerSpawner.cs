@@ -25,10 +25,10 @@ public class VillagerSpawner : MonoBehaviour {
 				int index = Random.Range (0, nodes.Length);
 				if (flag) {
 					flag = false;
-					Instantiate (obasan, nodes[index].transform);
+					Instantiate (obasan, nodes[index].transform.position,Quaternion.identity);
 				} else {
 					flag = true;
-					Instantiate (syonen, nodes[index].transform);
+					Instantiate (syonen, nodes[index].transform.position,Quaternion.identity);
 				}
 			}
 		}
