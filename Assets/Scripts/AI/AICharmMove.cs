@@ -9,17 +9,22 @@ public class AICharmMove : MonoBehaviour ,IAIMoveStrategy{
     public float GetSpeed(){
         return _speed;
     }
+	public void Destory()
+	{
+		Destroy(this);
+	}
     public void SetSpeed(float speed){
         _speed = speed;
     }
-	public void DoMove()
+	public float DoMove()
 	{
 		if (_moveDirection == null)
 		{
 			Debug.Log("方向が設定されていません");
-			return;
+			return 0;
 		}
         this.transform.position += Vector3Utiltiy.ReturnNormalizedYZeroVec3(charmTransform.position-this.transform.position) * _speed;
+        return _speed;
 	}
 
     public void SetTransofrm(ref Transform transform)

@@ -9,7 +9,10 @@ public class AIEscapeMove : MonoBehaviour,IAIMoveStrategy {
 	void Start () {
 		
 	}
-	
+	public void Destory()
+	{
+		Destroy(this);
+	}
 	// Update is called once per frame
 	void Update () {
 		
@@ -22,12 +25,13 @@ public class AIEscapeMove : MonoBehaviour,IAIMoveStrategy {
 	{
 		_speed = speed;
 	}
-    public void DoMove(){
+    public float DoMove(){
         if(_moveDireciton==null){
             Debug.Log("方向が設定されていません");
-            return;
+            return 0;
         }
         this.transform.position += _moveDireciton*_speed;
+        return _speed;
     }
 
     public void SetMoveDirection(Vector3 moveDirection){
