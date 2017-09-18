@@ -13,7 +13,7 @@ public class Main : MonoBehaviour {
 	public float lifetime = 3;
 
 	private int score = 0;
-	bool flag=false;
+	bool flag=true; //デバッグ用
 
 	void Update () {
 		//debug
