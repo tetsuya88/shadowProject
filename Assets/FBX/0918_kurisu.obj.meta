@@ -1,40 +1,27 @@
 fileFormatVersion: 2
-guid: d5e0bfcf32fefb44c91a5d05b4f20760
-timeCreated: 1505607645
+guid: 9115fa51de7964047b500faf50e264a1
+timeCreated: 1505697665
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: Chest_ctrl
-    100002: GlobalRST
-    100004: Head
-    100006: Hip
-    100008: L_Foot_Ctrl
-    100010: L_Foot_Upvector
-    100012: L_Hand_Ctrl
-    100014: L_Hand_upvector
-    100016: R_Foot_Ctrl
-    100018: R_Foot_Upvector
-    100020: R_Hand_Ctrl
-    100022: R_Hand_Upvector
-    100024: Spine
-    100026: //RootNode
-    400000: Chest_ctrl
-    400002: GlobalRST
-    400004: Head
-    400006: Hip
-    400008: L_Foot_Ctrl
-    400010: L_Foot_Upvector
-    400012: L_Hand_Ctrl
-    400014: L_Hand_upvector
-    400016: R_Foot_Ctrl
-    400018: R_Foot_Upvector
-    400020: R_Hand_Ctrl
-    400022: R_Hand_Upvector
-    400024: Spine
-    400026: //RootNode
-    7400000: Take 001
-    9500000: //RootNode
+    100000: //RootNode
+    100002: polySurface13
+    100004: polySurface14_pPlane2
+    100006: pSphere4
+    400000: //RootNode
+    400002: polySurface13
+    400004: polySurface14_pPlane2
+    400006: pSphere4
+    2300000: polySurface13
+    2300002: polySurface14_pPlane2
+    2300004: pSphere4
+    3300000: polySurface13
+    3300002: polySurface14_pPlane2
+    3300004: pSphere4
+    4300000: polySurface13
+    4300002: polySurface14_pPlane2
+    4300004: pSphere4
   materials:
     importMaterials: 1
     materialName: 0
@@ -104,7 +91,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

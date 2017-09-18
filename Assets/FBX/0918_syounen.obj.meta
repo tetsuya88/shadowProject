@@ -1,27 +1,22 @@
 fileFormatVersion: 2
-guid: 23acf4c6d8229ad4299d9b1ec1794016
-timeCreated: 1505628752
+guid: e5fa05f627baec44b8abb0ace56a4a12
+timeCreated: 1505698181
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
     100002: polySurface1
-    100004: polySurface2
-    100006: pSphere1
+    100004: pSphere1
     400000: //RootNode
     400002: polySurface1
-    400004: polySurface2
-    400006: pSphere1
+    400004: pSphere1
     2300000: polySurface1
-    2300002: polySurface2
-    2300004: pSphere1
+    2300002: pSphere1
     3300000: polySurface1
-    3300002: polySurface2
-    3300004: pSphere1
+    3300002: pSphere1
     4300000: polySurface1
-    4300002: polySurface2
-    4300004: pSphere1
+    4300002: pSphere1
   materials:
     importMaterials: 1
     materialName: 0
