@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerShadowCheck : MonoBehaviour {
 	public GameObject lgt = null;
+	public GameObject mainui;
 	private Vector3 dir;
 
 	Ray ray;
@@ -27,8 +28,10 @@ public class PlayerShadowCheck : MonoBehaviour {
 
 		if (Physics.Raycast (ray, out hit, dis,layerMask) && (hit.collider.tag == "Wall") ){
 			GetComponent<Renderer> ().material.color = Color.black;
+			mainui.GetComponent<Main> ().Recovery ();
 		}else {
 			GetComponent<Renderer> ().material.color = Color.red;
+			mainui.GetComponent<Main> ().Damage ();
 		}
 	}
 }
