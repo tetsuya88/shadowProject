@@ -6,14 +6,14 @@
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 	}
 	SubShader {
-		Tags { "RenderType"="Transparent" "Queue"="Transparent" }
+		Tags { "RenderType"="TransparentCutout" "Queue"="AlphaTest" }
 		LOD 200
 		Cull off
 		Blend SrcAlpha OneMinusSrcAlpha
 		
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows
+		#pragma surface surf Standard fullforwardshadows alphatest:_Cutoff
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
