@@ -52,6 +52,7 @@ public class Main : MonoBehaviour {
 
 	void Result(){
 		//クリア時の処理
+
 		SceneManager.LoadScene (4);
 	}
 
