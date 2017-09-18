@@ -61,7 +61,7 @@ public class TextureTiler : MonoBehaviour {
 
     }
     void Start(){
-
+		UpdateMesh ();
     }
 
     void Update () {
