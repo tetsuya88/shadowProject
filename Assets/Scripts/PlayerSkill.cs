@@ -8,6 +8,7 @@ public class PlayerSkill : MonoBehaviour {
 	public GameObject Bat;
     public GameObject charmField;
     public GameObject charmCollision;
+    public Animator anim;
 	public float speed=3f;
 	public float minpos=2f;
 	public float maxpos=5f;
@@ -29,10 +30,12 @@ public class PlayerSkill : MonoBehaviour {
 			dis = 0f;
 			batcircle = Instantiate (batCircle) as GameObject;
 			batcircle.transform.position = transform.position + transform.forward * dis + startpos;
+            anim.Play("Nageru_mae");
 		} else if (Input.GetKeyUp (KeyCode.X)&&batcircle!=null) {
 			batpos = batcircle.transform.position;
 			Destroy (batcircle);
 			StartCoroutine ("BatStart");
+            anim.Play("Nageru_ato");
 		} else if (Input.GetKey (KeyCode.X)&&batcircle!=null) {
 			if (dis < maxpos - minpos) {
 				dis += Time.deltaTime * speed;
@@ -46,6 +49,7 @@ public class PlayerSkill : MonoBehaviour {
         }else if(Input.GetKeyUp(KeyCode.Z)){
             charmCollision.SetActive(true);
             StartCoroutine("CharmStart");
+            anim.Play("Charm");
         }
 	}
 

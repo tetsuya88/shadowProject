@@ -50,6 +50,7 @@ public class AIFindNodeMove : MonoBehaviour,IAIMoveStrategy {
             }
 
            var index  = (int)Random.Range(0, tmpList.Count - 0.01f);
+            if(index<tmpList.Count)
             _nextNodePosition = tmpList[index];
         }
         var moveDirection = (Vector3)(_nextNodePosition - this.transform.position);
