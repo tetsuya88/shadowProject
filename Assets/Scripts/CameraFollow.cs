@@ -8,12 +8,12 @@ public class CameraFollow : MonoBehaviour {
 
 	void Start () {
         pos = this.transform.position - player.transform.position;
-		transform.rotation = Quaternion.LookRotation (player.transform.position - transform.position);
+		//transform.rotation = Quaternion.LookRotation (player.transform.position - transform.position);
 	}
 
 	void FixedUpdate () {
      
-        transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        //transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
 		this.transform.position = player.transform.position + pos;
 	}
 }

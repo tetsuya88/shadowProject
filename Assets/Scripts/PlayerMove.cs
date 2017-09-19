@@ -13,8 +13,8 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		//Move ();
-		RotateMove();
+		Move ();
+		//RotateMove();
 	}
 
 	void Move () {
@@ -34,6 +34,7 @@ public class PlayerMove : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			if (x != 0 || z != 0)
             {
+				Debug.Log ("aaa");
                 if(anim.GetCurrentAnimatorStateInfo(0).IsName("Taiki"))
                 anim.Play("Hashiri");
 				transform.rotation = Quaternion.LookRotation(transform.position+Vector3.right * x + Vector3.forward * z -transform.position);
@@ -48,11 +49,17 @@ public class PlayerMove : MonoBehaviour {
 	}
 	void RotateMove (){
 		if (Input.GetButton ("Horizontal") || Input.GetButton ("Vertical")) {
+			if(anim.GetCurrentAnimatorStateInfo(0).IsName("Taiki"))
+				anim.Play("Hashiri");
 			x = Input.GetAxis ("Horizontal");
 			z = Input.GetAxis ("Vertical");
 			transform.Rotate (0, x*Time.deltaTime*rotatespeed, 0);
 			rb.MovePosition (transform.position + transform.forward * Time.deltaTime*speed*z);
 			rb.velocity = Vector3.zero;
+		}else if(anim.GetCurrentAnimatorStateInfo(0).IsName("Hashiri"))
+		{
+			Debug.Log("aa");
+			anim.Play("Taiki");
 		}
 	}
 		
