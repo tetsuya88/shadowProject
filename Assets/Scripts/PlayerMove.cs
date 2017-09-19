@@ -47,6 +47,7 @@ public class PlayerMove : MonoBehaviour {
 	}
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("AA");
         if(LayerMask.LayerToName(collision.gameObject.layer) == "Person"){
             anim.Play("Attack");
         }
