@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour {
 	public float speed = 10f;
 	private float x = 0f, z = 0f;
 	private Rigidbody rb;
-
+	public Animator anim;
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 	}
