@@ -45,5 +45,10 @@ public class PlayerMove : MonoBehaviour {
 			anim.Play("Taiki");
 		}
 	}
-		
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(LayerMask.LayerToName(collision.gameObject.layer) == "Person"){
+            anim.Play("Attack");
+        }
+    }
 }
