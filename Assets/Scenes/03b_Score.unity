@@ -474,11 +474,11 @@ MonoBehaviour:
   rank5: {fileID: 490801126}
   myscore: {fileID: 593025321}
   rank: {fileID: 307597814}
-  Sline: 20
-  Aline: 16
-  Bline: 12
-  Cline: 8
-  Dline: 4
+  Sline: 42
+  Aline: 35
+  Bline: 30
+  Cline: 20
+  Dline: 10
 --- !u!1 &593025319
 GameObject:
   m_ObjectHideFlags: 0
