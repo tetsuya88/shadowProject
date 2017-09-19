@@ -76,9 +76,9 @@ public class PlayerSkill : MonoBehaviour {
         }
 
 
-        if(Input.GetKeyDown(KeyCode.Z)){
+        if(Input.GetMouseButtonDown(1)){
             charmField.SetActive(true);
-        }else if(Input.GetKeyUp(KeyCode.Z)){
+        }else if(Input.GetMouseButtonUp(1)){
             charmCollision.SetActive(true);
             StartCoroutine("CharmStart");
             anim.Play("Charm");
