@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
-	public float rotatespeed = 30f;
-	public float speed = 10f;
+	public float speed = 1f;
+    public Animator anim;
 	private float x = 0f, z = 0f;
 	private Rigidbody rb;
-	public Animator anim;
+
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 	}
 
 	void FixedUpdate(){
 		Move ();
-		//RotateMove();
 	}
 
 	void Move () {
@@ -34,7 +33,6 @@ public class PlayerMove : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			if (x != 0 || z != 0)
             {
-				Debug.Log ("aaa");
                 if(anim.GetCurrentAnimatorStateInfo(0).IsName("Taiki"))
                 anim.Play("Hashiri");
 				transform.rotation = Quaternion.LookRotation(transform.position+Vector3.right * x + Vector3.forward * z -transform.position);
@@ -47,20 +45,11 @@ public class PlayerMove : MonoBehaviour {
 			anim.Play("Taiki");
 		}
 	}
-	void RotateMove (){
-		if (Input.GetButton ("Horizontal") || Input.GetButton ("Vertical")) {
-			if(anim.GetCurrentAnimatorStateInfo(0).IsName("Taiki"))
-				anim.Play("Hashiri");
-			x = Input.GetAxis ("Horizontal");
-			z = Input.GetAxis ("Vertical");
-			transform.Rotate (0, x*Time.deltaTime*rotatespeed, 0);
-			rb.MovePosition (transform.position + transform.forward * Time.deltaTime*speed*z);
-			rb.velocity = Vector3.zero;
-		}else if(anim.GetCurrentAnimatorStateInfo(0).IsName("Hashiri"))
-		{
-			Debug.Log("aa");
-			anim.Play("Taiki");
-		}
-	}
-		
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("AA");
+        if(LayerMask.LayerToName(collision.gameObject.layer) == "Person"){
+            anim.Play("Attack");
+        }
+    }
 }
