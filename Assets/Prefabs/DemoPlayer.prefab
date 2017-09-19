@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4978838911231202}
   - component: {fileID: 33369572859942204}
   - component: {fileID: 23237954264388148}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: CharmField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4747146542738912}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: Charm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4591794722440716}
   - component: {fileID: 135998556197745834}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: CharmCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,8 +708,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228039726149554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.16, z: -5.57}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4897819835499892}
   - {fileID: 4767064451442030}
@@ -1182,8 +1182,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882575724138410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 4491187451215104}
   - {fileID: 4366437871651900}
@@ -1771,7 +1771,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!95 &95586120631942106
 Animator:
@@ -1859,4 +1859,4 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.4, z: 0}

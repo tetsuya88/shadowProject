@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4959429239638094}
   - component: {fileID: 114290238014776338}
+  - component: {fileID: 65745986964647470}
   m_Layer: 8
   m_Name: building_obj
   m_TagString: Wall
@@ -475,6 +476,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!65 &65745986964647470
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277896299515486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.000003, y: 5.000001, z: 7.000002}
+  m_Center: {x: 6.0000014, y: 2.5000005, z: 3.500001}
 --- !u!114 &114148004158297560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,6 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _x: 12
   _z: 7
+  _material: {fileID: 0}
 --- !u!114 &114602213585096204
 MonoBehaviour:
   m_ObjectHideFlags: 1

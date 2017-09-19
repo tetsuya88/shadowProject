@@ -80,6 +80,7 @@ public class PlayerSkill : MonoBehaviour {
             charmField.SetActive(true);
         }else if(Input.GetMouseButtonUp(1)){
             charmCollision.SetActive(true);
+			charmField.SetActive(false);
             StartCoroutine("CharmStart");
             anim.Play("Charm");
         }
@@ -87,8 +88,7 @@ public class PlayerSkill : MonoBehaviour {
 
 
     IEnumerator CharmStart(){
-        yield return new WaitForSeconds(1);
-        charmField.SetActive(false);
+        yield return new WaitForSeconds(2);
         charmCollision.SetActive(false);
     }
 
