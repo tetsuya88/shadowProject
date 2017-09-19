@@ -169,6 +169,6 @@ public enum EVillagerAnimationMode
 
 public static class MoveSpeed{
     public static float CharmSpeed = 0.1f;
-    public static float EscapeSpeed = 0.1f;
+    public static float EscapeSpeed = 0.2f;
     public static float WalkSpeed = 0.1f;
 }

@@ -7,7 +7,7 @@ public class VillagerSpawner : MonoBehaviour {
 	private bool flag = true;
 	private float timecount = 1f;
 
-	public int max = 10;
+	public int max = 20;
 	public float gametime = 90;
 	public GameObject obasan;
 	public GameObject syonen;
@@ -19,8 +19,17 @@ public class VillagerSpawner : MonoBehaviour {
 
 	void Update () {
 		timecount -= Time.deltaTime;
+        gametime -= Time.deltaTime;
 		if(timecount <0){
-			timecount = 3f ;
+            if(gametime>60){
+                timecount = 2f;
+            }else if(gametime>30){
+                timecount = 1f;
+            }else{
+                timecount = 0.5f;
+            }
+
+
 			GameObject[] villagers = GameObject.FindGameObjectsWithTag ("Person");
 			if (villagers.Length < max) {
 				int index = Random.Range (0, nodes.Length);
