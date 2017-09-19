@@ -50,6 +50,7 @@ public class PlayerMove : MonoBehaviour {
         Debug.Log("AA");
         if(LayerMask.LayerToName(collision.gameObject.layer) == "Person"){
             anim.Play("Attack");
+            GetComponent<AudioSource>().Play();
         }
     }
 }

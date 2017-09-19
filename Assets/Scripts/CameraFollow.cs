@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour {
 	private Vector3 pos;
 
 	void Start () {
+        GetComponent<AudioSource>().Play();
         pos = this.transform.position - player.transform.position;
 		//transform.rotation = Quaternion.LookRotation (player.transform.position - transform.position);
 	}

@@ -146,6 +146,7 @@ public class AIMover : MonoBehaviour
 		anim.Play("Hashiri");
         state = EVillagerAnimationMode.Hashiri;
         isGotBatted = false;
+        GetComponent<AudioSource>().Play();
 	}
 
     private IEnumerator DeadMotionCoroutine(){

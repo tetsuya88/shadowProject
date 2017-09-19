@@ -20,6 +20,7 @@ public class PlayerSkill : MonoBehaviour {
 	private Vector3 batpos;
 	private bool flag=true;
     private Vector3? batVec;
+    private Coroutine CharmCoroutine = null;
 	void Start () {
 		
 	}
@@ -76,12 +77,13 @@ public class PlayerSkill : MonoBehaviour {
         }
 
 
-        if(Input.GetMouseButtonDown(1)){
+        if(Input.GetMouseButtonDown(1)&&CharmCoroutine==null){
             charmField.SetActive(true);
-        }else if(Input.GetMouseButtonUp(1)){
+        }else if(Input.GetMouseButtonUp(1)&&CharmCoroutine == null){
             charmCollision.SetActive(true);
 			charmField.SetActive(false);
-            StartCoroutine("CharmStart");
+
+            CharmCoroutine = StartCoroutine("CharmStart");
             anim.Play("Charm");
         }
 	}
@@ -90,6 +92,8 @@ public class PlayerSkill : MonoBehaviour {
     IEnumerator CharmStart(){
         yield return new WaitForSeconds(2);
         charmCollision.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        CharmCoroutine = null;
     }
 
 	IEnumerator BatStart(){
