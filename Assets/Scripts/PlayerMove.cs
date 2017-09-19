@@ -34,8 +34,16 @@ public class PlayerMove : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			if (x != 0 || z != 0)
             {
+                if(anim.GetCurrentAnimatorStateInfo(0).IsName("Taiki"))
+                anim.Play("Hashiri");
 				transform.rotation = Quaternion.LookRotation(transform.position+Vector3.right * x + Vector3.forward * z -transform.position);
-			}
+            }
+
+		}
+		else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hashiri"))
+		{
+			Debug.Log("aa");
+			anim.Play("Taiki");
 		}
 	}
 	void RotateMove (){
