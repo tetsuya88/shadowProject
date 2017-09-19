@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIFindNodeMove : MonoBehaviour,IAIMoveStrategy {
     public float _speed;
-    private Vector3? _nextNodePosition;
+	private Vector3? _nextNodePosition = new Vector3(0f,0f,0f);
     private List<Vector3> _nodePositions;
     private Vector3? _prevNodePosition;
 	// Use this for initialization
@@ -14,6 +14,8 @@ public class AIFindNodeMove : MonoBehaviour,IAIMoveStrategy {
 		{
 			_nodePositions.Add(node.transform.position);
 		}
+
+		_speed = MoveSpeed.WalkSpeed;
         _prevNodePosition = new Vector3(0f, 0f, 0f);
 	}
 	
