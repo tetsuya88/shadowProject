@@ -29,6 +29,7 @@ public class Score: MonoBehaviour {
 		List<int> ranklist = new List<int> ();
 		for (int i=0; i < 5; i++) {
 			ranklist.Add(PlayerPrefs.GetInt ("score" + (i + 1), 0));
+			Debug.Log (ranklist [i]);
 		}
 		ranklist.Sort(delegate(int a,int b) {return b-a;});
 

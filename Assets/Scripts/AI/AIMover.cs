@@ -46,7 +46,7 @@ public class AIMover : MonoBehaviour
         if (isDying) return;
         if (isGotBatted) return;
         if (nowTimeCoroutine == null)
-            nowTimeCoroutine = StartCoroutine(TimeCountCoroutine());
+            //nowTimeCoroutine = StartCoroutine(TimeCountCoroutine());
 		
         
         if (speed <0.00001f)
@@ -77,7 +77,7 @@ public class AIMover : MonoBehaviour
 			switch ((int)Random.Range(0, 2 - 0.01f))
 			{
 				case 0:
-					aiMoveStrategy = gameObject.AddComponent<AIFreeMove>();
+                    aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
 					break;
 				case 1:
 					//aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
@@ -107,7 +107,10 @@ public class AIMover : MonoBehaviour
             isGotBatted = true;
         }
         else if ((LayerMask.LayerToName(other.gameObject.layer) == "Charm")){
-            aiMoveStrategy.Destory();
+			if (aiMoveStrategy != null)
+			{
+				aiMoveStrategy.Destory();
+			}
             aiMoveStrategy = null;
             aiMoveStrategy = this.gameObject.AddComponent<AICharmMove>();
             var _transform = other.gameObject.transform;

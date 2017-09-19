@@ -5,7 +5,7 @@ using UnityEngine;
 public class VillagerSpawner : MonoBehaviour {
  
 	private bool flag = true;
-	private float timecount = 3f;
+	private float timecount = 1f;
 
 	public int max = 10;
 	public GameObject obasan;
