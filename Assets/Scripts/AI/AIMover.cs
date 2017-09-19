@@ -77,7 +77,7 @@ public class AIMover : MonoBehaviour
 			switch ((int)Random.Range(0, 2 - 0.01f))
 			{
 				case 0:
-					aiMoveStrategy = gameObject.AddComponent<AIFreeMove>();
+					aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();
 					break;
 				case 1:
 					//aiMoveStrategy = gameObject.AddComponent<AIFindNodeMove>();

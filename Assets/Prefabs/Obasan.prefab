@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 54469950686594654}
   - component: {fileID: 114205444441571942}
   - component: {fileID: 136268298965460046}
-  - component: {fileID: 114620358296678612}
+  - component: {fileID: 114059373661561082}
   m_Layer: 9
   m_Name: Obasan
   m_TagString: Person
@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1892874613484392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27, y: 0.5, z: 10}
+  m_LocalPosition: {x: -19.5, y: 0.5, z: -7.9}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4765732258436998}
@@ -431,6 +431,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114059373661561082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892874613484392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4bdc93a90944605bd7ae73ee101ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0
 --- !u!114 &114205444441571942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,19 +455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95892920213130914}
---- !u!114 &114620358296678612
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1892874613484392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9d008d73f58f46b4bf3d2091932b8a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  limit: 5
-  _speed: 0.1
 --- !u!136 &136268298965460046
 CapsuleCollider:
   m_ObjectHideFlags: 1

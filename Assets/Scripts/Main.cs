@@ -8,6 +8,9 @@ public class Main : MonoBehaviour {
 	public Text scoreText;
 	public Text timeText;
 	public Slider slider;
+	public GameObject spop;
+	public GameObject cpop;
+
 	public float time =120f;
 	public int clearLine = 10;
 	public float lifetime = 3;
@@ -16,12 +19,16 @@ public class Main : MonoBehaviour {
 	bool flag=true; //デバッグ用
 
 	void Start(){
-		//Time.timeScale = 0;
+		cpop.SetActive (false);
+		Time.timeScale = 0;
+		time++;
 	}
 
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Return)) {
-
+			spop.SetActive (false);
+			Time.timeScale = 1.0f;
+			gameObject.GetComponent<AudioSource> ().Play ();
 		}
 		//debug
 		//Damage ();
@@ -37,6 +44,7 @@ public class Main : MonoBehaviour {
 					SceneManager.LoadScene (3);
 				} else {
 					Result ();
+					flag = false;
 				}
 			}
 		}
@@ -53,6 +61,7 @@ public class Main : MonoBehaviour {
 	}
 
 	void Result(){
+		cpop.SetActive (true);
 		//クリア時の処理
 		List<int> ranklist = new List<int> ();
 		int min = 100;
@@ -69,22 +78,30 @@ public class Main : MonoBehaviour {
 		if(min<score){
 			PlayerPrefs.SetInt ("score" + minindex, score);
 		}
-		SceneManager.LoadScene (4);
+		StartCoroutine (WaitChange ());
 	}
 
 	//ひなたにいる間update関数の中で呼んでください
 	public void Damage(){
 		slider.value -= Time.deltaTime/lifetime;
 		if (slider.value <= 0) {
-			//SceneManager.LoadScene (3);
+			if (flag) {
+				SceneManager.LoadScene (3);
+			}
 		}
 	}
 
 	//ひかげ
 	public void Recovery(){
 		if (slider.value < 1) {
-			slider.value += Time.deltaTime / 10;
+			slider.value += Time.deltaTime / lifetime;
 		}
+	}
+
+	private IEnumerator WaitChange(){
+		yield return new WaitForSeconds (2f);
+		SceneManager.LoadScene (4);
+
 	}
 
 }
