@@ -22,7 +22,6 @@ public class AIFreeMove : MonoBehaviour,IAIMoveStrategy {
 	}
 	public void Destory()
 	{
-        
 		Destroy(this);
 	}
     public float DoMove(){
